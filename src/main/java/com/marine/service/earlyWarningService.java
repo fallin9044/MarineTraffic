@@ -15,7 +15,5 @@ public interface earlyWarningService {
          * @return EarlyWarningResponse
     **/
     public EarlyWarningResponse EarlyWarning(EarlyWarningRequest request);
-    func EarlyWarning(request *constant.EarlyWarningRequest) (response *constant.EarlyWarningResponse,
-    err error)
 
 }
