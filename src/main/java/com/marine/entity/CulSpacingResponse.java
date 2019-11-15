@@ -1,5 +1,6 @@
 package com.marine.entity;
 
+import java.util.List;
 import java.util.Map;
 
 public class CulSpacingResponse{
@@ -9,7 +10,7 @@ public class CulSpacingResponse{
 	Position APosition ; //A船位置
 	Position BPosition ; //B船位置
 	Double SpacingMap ; //船舶最短距离map
-	Integer[] SpacingRange ; //船舶最短距离分布区间
+	List<Integer> SpacingRange ; //船舶最短距离分布区间
 	Double ShipSpacing ; //船舶间距map
 	Map<Integer,Track> TrackMap ; //船舶当前信息
 
@@ -61,11 +62,11 @@ public class CulSpacingResponse{
 		SpacingMap = spacingMap;
 	}
 
-	public Integer[] getSpacingRange() {
+	public List<Integer> getSpacingRange() {
 		return SpacingRange;
 	}
 
-	public void setSpacingRange(Integer[] spacingRange) {
+	public void setSpacingRange(List<Integer> spacingRange) {
 		SpacingRange = spacingRange;
 	}
 

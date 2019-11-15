@@ -1,8 +1,10 @@
 package com.marine.entity;
 
+import java.util.List;
+
 public class Warning{
 	Track MasterShipTrack ; //主船只数据
-	Alert[] Alerts ; //警告列表
+	List<Alert> Alerts ; //警告列表
 	Data Time ; //警告时间
 
 	public Track getMasterShipTrack() {
@@ -13,11 +15,11 @@ public class Warning{
 		MasterShipTrack = masterShipTrack;
 	}
 
-	public Alert[] getAlerts() {
+	public List<Alert> getAlerts() {
 		return Alerts;
 	}
 
-	public void setAlerts(Alert[] alerts) {
+	public void setAlerts(List<Alert> alerts) {
 		Alerts = alerts;
 	}
 

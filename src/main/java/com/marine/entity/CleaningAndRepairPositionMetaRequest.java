@@ -1,14 +1,21 @@
 package com.marine.entity;
 
+import java.util.List;
+
 public class CleaningAndRepairPositionMetaRequest {
-    PositionMeta[] DataList;
+    List<PositionMeta> DataList;
     PositionMeta PrePosition;
 
-    public PositionMeta[] getDataList() {
+    public CleaningAndRepairPositionMetaRequest(List<PositionMeta> dataList, PositionMeta prePosition) {
+        DataList = dataList;
+        PrePosition = prePosition;
+    }
+
+    public List<PositionMeta> getDataList() {
         return DataList;
     }
 
-    public void setDataList(PositionMeta[] dataList) {
+    public void setDataList(List<PositionMeta> dataList) {
         DataList = dataList;
     }
 

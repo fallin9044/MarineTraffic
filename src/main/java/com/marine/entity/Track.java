@@ -1,5 +1,7 @@
 package com.marine.entity;
 
+import java.util.List;
+
 public class Track{
 	Position PrePosition ; //之前位置
 	Boolean DeWeightDoorLine ; //判断是否过门线
@@ -7,7 +9,7 @@ public class Track{
 	Integer Deviation ; //当前时间精度
 	Double COG ; //船舶COG
 	Double SOG ; //船舶SOG
-	Position[] TrackList ; //船舶航迹
+	List<Position> TrackList ; //船舶航迹
 
 	public Position getPrePosition() {
 		return PrePosition;
@@ -57,11 +59,11 @@ public class Track{
 		this.SOG = SOG;
 	}
 
-	public Position[] getTrackList() {
+	public List<Position> getTrackList() {
 		return TrackList;
 	}
 
-	public void setTrackList(Position[] trackList) {
+	public void setTrackList(List<Position> trackList) {
 		TrackList = trackList;
 	}
 }

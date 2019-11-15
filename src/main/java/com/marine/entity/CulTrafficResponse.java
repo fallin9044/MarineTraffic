@@ -1,15 +1,18 @@
 package com.marine.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CulTrafficResponse{
 
-	AreaTraffic[][] AreaTraffics ; //区域交通量统计
+	List<ArrayList<AreaTraffic>> AreaTraffics ; //区域交通量统计
 	TrafficData TrafficData ; //综合小时交通量统计
 
-	public AreaTraffic[][] getAreaTraffics() {
+	public List<ArrayList<AreaTraffic>> getAreaTraffics() {
 		return AreaTraffics;
 	}
 
-	public void setAreaTraffics(AreaTraffic[][] areaTraffics) {
+	public void setAreaTraffics(List<ArrayList<AreaTraffic>> areaTraffics) {
 		AreaTraffics = areaTraffics;
 	}
 

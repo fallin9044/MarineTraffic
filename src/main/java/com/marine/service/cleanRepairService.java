@@ -1,5 +1,11 @@
 package com.marine.service;
 
+import com.marine.entity.CleaningAndRepairPositionMetaRequest;
+import com.marine.entity.CleaningAndRepairPositionMetaResponse;
+import com.marine.entity.PositionMeta;
+
+import java.util.List;
+
 /**
  * @Auther: cuishuyang
  * @Date: 2019/11/15 08:54
@@ -32,7 +38,7 @@ public interface cleanRepairService {
      * @Date 8:59 上午 2019/11/15
      * @Param [rawData, preData]
      **/
-    public PositionMeta[] cleanData(PositionMeta[] rawData, PositionMeta preData);
+    public List<PositionMeta> cleanData(List<PositionMeta> rawData, PositionMeta preData);
 
     /**
      * @return PositionMeta[]
@@ -41,7 +47,7 @@ public interface cleanRepairService {
      * @Date 9:00 上午 2019/11/15
      * @Param [cleaData]
      **/
-    public PositionMeta[] repairData(PositionMeta[] cleaData);
+    public List<PositionMeta> repairData(List<PositionMeta> cleanData);
 
     /**
      * @return CleaningAndRepairPositionMetaResponse

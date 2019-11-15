@@ -1,5 +1,7 @@
 package com.marine.entity;
 
+import java.util.List;
+
 public class CulMeetingResponse{
 	Integer SimpleMeeting ; //简单会遇数目
 	Integer ComplexMeeting ; //复杂会遇数目
@@ -7,8 +9,8 @@ public class CulMeetingResponse{
 	Integer ComplexDamageMeeting ; //复杂危险会遇数目
 	Integer ForecastDamageMeeting ; //预测危险会遇数目
 	Integer DamageMeetingAvoid ; //危险会遇规避数目
-	Integer[] AngleForecastDamageMeeting ; //各个角度预测危险会遇数目
-	Integer[] AngleDamageMeetingAvoid ; //各个角度危险会遇规避数目
+	List<Integer> AngleForecastDamageMeeting ; //各个角度预测危险会遇数目
+	List<Integer> AngleDamageMeetingAvoid ; //各个角度危险会遇规避数目
 
 	public Integer getSimpleMeeting() {
 		return SimpleMeeting;
@@ -58,19 +60,19 @@ public class CulMeetingResponse{
 		DamageMeetingAvoid = damageMeetingAvoid;
 	}
 
-	public Integer[] getAngleForecastDamageMeeting() {
+	public List<Integer> getAngleForecastDamageMeeting() {
 		return AngleForecastDamageMeeting;
 	}
 
-	public void setAngleForecastDamageMeeting(Integer[] angleForecastDamageMeeting) {
+	public void setAngleForecastDamageMeeting(List<Integer> angleForecastDamageMeeting) {
 		AngleForecastDamageMeeting = angleForecastDamageMeeting;
 	}
 
-	public Integer[] getAngleDamageMeetingAvoid() {
+	public List<Integer> getAngleDamageMeetingAvoid() {
 		return AngleDamageMeetingAvoid;
 	}
 
-	public void setAngleDamageMeetingAvoid(Integer[] angleDamageMeetingAvoid) {
+	public void setAngleDamageMeetingAvoid(List<Integer> angleDamageMeetingAvoid) {
 		AngleDamageMeetingAvoid = angleDamageMeetingAvoid;
 	}
 }

@@ -1,9 +1,11 @@
 package com.marine.entity;
 
+import java.util.List;
+
 public class GetPositionWithShipIDResponse{
 	Integer Code ; //'json:"code"`
 	String Message ; //'json:"message"`
-	PositionMeta[] Data ; //'json:"data"`
+	List<PositionMeta> Data ; //'json:"data"`
 
 	public Integer getCode() {
 		return Code;
@@ -21,11 +23,11 @@ public class GetPositionWithShipIDResponse{
 		Message = message;
 	}
 
-	public PositionMeta[] getData() {
+	public List<PositionMeta> getData() {
 		return Data;
 	}
 
-	public void setData(PositionMeta[] data) {
+	public void setData(List<PositionMeta> data) {
 		Data = data;
 	}
 }

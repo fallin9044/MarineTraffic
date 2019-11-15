@@ -1,14 +1,20 @@
 package com.marine.entity;
 
+import java.util.List;
+
 public class CleaningAndRepairPositionMetaResponse{
 
-	PositionMeta[] DataList ;
+	List<PositionMeta> DataList ;
 
-	public PositionMeta[] getDataList() {
+	public CleaningAndRepairPositionMetaResponse(List<PositionMeta> dataList) {
+		DataList = dataList;
+	}
+
+	public List<PositionMeta> getDataList() {
 		return DataList;
 	}
 
-	public void setDataList(PositionMeta[] dataList) {
+	public void setDataList(List<PositionMeta> dataList) {
 		DataList = dataList;
 	}
 }
