@@ -1,9 +1,11 @@
 package com.marine.entity;
 
+import java.util.List;
+
 public class SpeedData{
 	Double ShipSpeed ; //平均速度
 	Integer ShipCnt ; //船舶总数
-	Integer[] ShipSpeedRange ; //船舶速度区间
+	List<Integer> ShipSpeedRange ; //船舶速度区间
 
 	public Double getShipSpeed() {
 		return ShipSpeed;
@@ -21,11 +23,11 @@ public class SpeedData{
 		ShipCnt = shipCnt;
 	}
 
-	public Integer[] getShipSpeedRange() {
+	public List<Integer> getShipSpeedRange() {
 		return ShipSpeedRange;
 	}
 
-	public void setShipSpeedRange(Integer[] shipSpeedRange) {
+	public void setShipSpeedRange(List<Integer> shipSpeedRange) {
 		ShipSpeedRange = shipSpeedRange;
 	}
 }

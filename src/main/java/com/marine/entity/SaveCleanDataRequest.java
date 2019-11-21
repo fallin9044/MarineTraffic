@@ -1,13 +1,19 @@
 package com.marine.entity;
 
-public class SaveCleanDataRequest{
-	PositionMeta[] DataList ;
+import java.util.List;
 
-	public PositionMeta[] getDataList() {
+public class SaveCleanDataRequest{
+	List<PositionMeta> DataList ;
+
+	public SaveCleanDataRequest(List<PositionMeta> dataList) {
+		DataList = dataList;
+	}
+
+	public List<PositionMeta> getDataList() {
 		return DataList;
 	}
 
-	public void setDataList(PositionMeta[] dataList) {
+	public void setDataList(List<PositionMeta> dataList) {
 		DataList = dataList;
 	}
 }

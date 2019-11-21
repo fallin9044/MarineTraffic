@@ -1,16 +1,18 @@
 package com.marine.entity;
 
+import java.util.List;
+
 public class TrafficData{
-	Integer[] HourTrafficSum ; //各区域小时流量相和->总小时流量和
-	Integer[] HourSmallShipTrafficSum ; //各区域小时小船流量相和->总小时小船流量和
-	Integer[] HourBigShipTrafficSum ; //各区域小时大船流量相和->总小时大船流量和
-	Integer[] HourType0ShipTrafficSum ; //各区域小时渔船流量相和
-	Integer[] HourType6xShipTrafficSum ; //各区域小时客船流量相和
-	Integer[] HourType7xShipTrafficSum ; //各区域小时货轮流量相和
-	Integer[] HourType8xShipTrafficSum ; //各区域小时油轮流量相和
-	Integer[] HourOtherTypeShipTraffic ; 
-	Integer Traffic ; 
-	Integer SmallShipTraffic ; 
+	List<Integer> HourTrafficSum ; //各区域小时流量相和->总小时流量和
+	List<Integer> HourSmallShipTrafficSum ; //各区域小时小船流量相和->总小时小船流量和
+	List<Integer> HourBigShipTrafficSum ; //各区域小时大船流量相和->总小时大船流量和
+	List<Integer> HourType0ShipTrafficSum ; //各区域小时渔船流量相和
+	List<Integer> HourType6xShipTrafficSum ; //各区域小时客船流量相和
+	List<Integer> HourType7xShipTrafficSum ; //各区域小时货轮流量相和
+	List<Integer> HourType8xShipTrafficSum ; //各区域小时油轮流量相和
+	Integer HourOtherTypeShipTraffic ;
+	Integer Traffic ;
+	Integer SmallShipTraffic ;
 	Integer BigShipTraffic ; 
 	Integer Type0ShipTraffic ; 
 	Integer Type6xShipTraffic ; 
@@ -18,67 +20,67 @@ public class TrafficData{
 	Integer Type8xShipTraffic ; 
 	Integer OtherTypeShipTraffic ;
 
-	public Integer[] getHourTrafficSum() {
+	public List<Integer> getHourTrafficSum() {
 		return HourTrafficSum;
 	}
 
-	public void setHourTrafficSum(Integer[] hourTrafficSum) {
+	public void setHourTrafficSum(List<Integer> hourTrafficSum) {
 		HourTrafficSum = hourTrafficSum;
 	}
 
-	public Integer[] getHourSmallShipTrafficSum() {
+	public List<Integer> getHourSmallShipTrafficSum() {
 		return HourSmallShipTrafficSum;
 	}
 
-	public void setHourSmallShipTrafficSum(Integer[] hourSmallShipTrafficSum) {
+	public void setHourSmallShipTrafficSum(List<Integer> hourSmallShipTrafficSum) {
 		HourSmallShipTrafficSum = hourSmallShipTrafficSum;
 	}
 
-	public Integer[] getHourBigShipTrafficSum() {
+	public List<Integer> getHourBigShipTrafficSum() {
 		return HourBigShipTrafficSum;
 	}
 
-	public void setHourBigShipTrafficSum(Integer[] hourBigShipTrafficSum) {
+	public void setHourBigShipTrafficSum(List<Integer> hourBigShipTrafficSum) {
 		HourBigShipTrafficSum = hourBigShipTrafficSum;
 	}
 
-	public Integer[] getHourType0ShipTrafficSum() {
+	public List<Integer> getHourType0ShipTrafficSum() {
 		return HourType0ShipTrafficSum;
 	}
 
-	public void setHourType0ShipTrafficSum(Integer[] hourType0ShipTrafficSum) {
+	public void setHourType0ShipTrafficSum(List<Integer> hourType0ShipTrafficSum) {
 		HourType0ShipTrafficSum = hourType0ShipTrafficSum;
 	}
 
-	public Integer[] getHourType6xShipTrafficSum() {
+	public List<Integer> getHourType6xShipTrafficSum() {
 		return HourType6xShipTrafficSum;
 	}
 
-	public void setHourType6xShipTrafficSum(Integer[] hourType6xShipTrafficSum) {
+	public void setHourType6xShipTrafficSum(List<Integer> hourType6xShipTrafficSum) {
 		HourType6xShipTrafficSum = hourType6xShipTrafficSum;
 	}
 
-	public Integer[] getHourType7xShipTrafficSum() {
+	public List<Integer> getHourType7xShipTrafficSum() {
 		return HourType7xShipTrafficSum;
 	}
 
-	public void setHourType7xShipTrafficSum(Integer[] hourType7xShipTrafficSum) {
+	public void setHourType7xShipTrafficSum(List<Integer> hourType7xShipTrafficSum) {
 		HourType7xShipTrafficSum = hourType7xShipTrafficSum;
 	}
 
-	public Integer[] getHourType8xShipTrafficSum() {
+	public List<Integer> getHourType8xShipTrafficSum() {
 		return HourType8xShipTrafficSum;
 	}
 
-	public void setHourType8xShipTrafficSum(Integer[] hourType8xShipTrafficSum) {
+	public void setHourType8xShipTrafficSum(List<Integer> hourType8xShipTrafficSum) {
 		HourType8xShipTrafficSum = hourType8xShipTrafficSum;
 	}
 
-	public Integer[] getHourOtherTypeShipTraffic() {
+	public Integer getHourOtherTypeShipTraffic() {
 		return HourOtherTypeShipTraffic;
 	}
 
-	public void setHourOtherTypeShipTraffic(Integer[] hourOtherTypeShipTraffic) {
+	public void setHourOtherTypeShipTraffic(Integer hourOtherTypeShipTraffic) {
 		HourOtherTypeShipTraffic = hourOtherTypeShipTraffic;
 	}
 

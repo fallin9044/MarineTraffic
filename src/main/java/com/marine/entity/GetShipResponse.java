@@ -1,9 +1,11 @@
 package com.marine.entity;
 
+import java.util.List;
+
 public class GetShipResponse{
 	Integer Code ; //'json:"code"`
 	String Message ; //'json:"message"`
-	Integer[] Data ; //'json:"data"`
+	List<Integer> Data ; //'json:"data"`
 
 	public Integer getCode() {
 		return Code;
@@ -21,11 +23,11 @@ public class GetShipResponse{
 		Message = message;
 	}
 
-	public Integer[] getData() {
+	public List<Integer> getData() {
 		return Data;
 	}
 
-	public void setData(Integer[] data) {
+	public void setData(List<Integer> data) {
 		Data = data;
 	}
 }

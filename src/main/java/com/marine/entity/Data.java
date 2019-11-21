@@ -65,4 +65,13 @@ public class Data{
 	public void setSecond(Integer second) {
 		Second = second;
 	}
+
+	public Data(PositionMeta p){
+		Year = p.getYear();
+		Month = p.getMonth();
+		Day = p.getDay();
+		Hour = p.getHour();
+		Minute = p.getMinute();
+		Second = p.getSecond();
+	}
 }

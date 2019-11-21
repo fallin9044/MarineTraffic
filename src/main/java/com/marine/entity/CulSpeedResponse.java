@@ -1,9 +1,12 @@
 package com.marine.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CulSpeedResponse{
 
 	SpeedData SpeedData ; //总体速度数据
-	AreaSpeed[][] AreaSpeed ; //区域速度数据
+	List<ArrayList<AreaSpeed>> AreaSpeed ; //区域速度数据
 
 	public com.marine.entity.SpeedData getSpeedData() {
 		return SpeedData;
@@ -13,11 +16,11 @@ public class CulSpeedResponse{
 		SpeedData = speedData;
 	}
 
-	public com.marine.entity.AreaSpeed[][] getAreaSpeed() {
+	public List<ArrayList<com.marine.entity.AreaSpeed>> getAreaSpeed() {
 		return AreaSpeed;
 	}
 
-	public void setAreaSpeed(com.marine.entity.AreaSpeed[][] areaSpeed) {
+	public void setAreaSpeed(List<ArrayList<com.marine.entity.AreaSpeed>> areaSpeed) {
 		AreaSpeed = areaSpeed;
 	}
 }
