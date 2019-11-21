@@ -6,4 +6,9 @@ package com.marine.helper;
  * @Description:
  */
 public class test {
+    public static void main(String[] args) {
+        int a = 90;
+        double b = Math.sin(a * Math.PI / 180);
+        System.out.println(b);
+    }
 }

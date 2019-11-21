@@ -11,17 +11,24 @@ import com.marine.service.zhangmodelService;
 public class ZhangmodelServiceImpl implements zhangmodelService {
     @Override
     public Boolean movingAvailable(PositionMeta position, PositionMeta prePosition) {
-        return null;
+        if(position.getLongitude().equals(prePosition.getLongitude())&&position.getLatitude().equals(prePosition.getLatitude())&&prePosition.getSOG() > 2){
+            System.out.println("moving" + prePosition + position);
+            return false;
+        }
+        return true;
     }
 
     @Override
     public Boolean speedAvailable(PositionMeta position, PositionMeta prePosition) {
-        return null;
+        if(position.getSOG() > 16){
+            return false;
+        }
+        return true;
     }
 
     @Override
     public Boolean driftAvailable(PositionMeta position, PositionMeta prePosition) {
-        return null;
+        return false;
     }
 
     @Override

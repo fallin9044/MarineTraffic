@@ -1,5 +1,8 @@
 package com.marine.service;
 
+import com.marine.entity.CulDoorLineRequest;
+import com.marine.entity.CulDoorLineResponse;
+
 /**
  * @Auther: cuishuyang
  * @Date: 2019/11/15 09:15

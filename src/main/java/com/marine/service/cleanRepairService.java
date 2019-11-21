@@ -1,10 +1,15 @@
 package com.marine.service;
 
+import com.marine.entity.CleaningAndRepairPositionMetaRequest;
+import com.marine.entity.CleaningAndRepairPositionMetaResponse;
+import com.marine.entity.PositionMeta;
+
 /**
  * @Auther: cuishuyang
  * @Date: 2019/11/15 08:54
  * @Description:
  */
+
 public interface cleanRepairService {
 
     /**

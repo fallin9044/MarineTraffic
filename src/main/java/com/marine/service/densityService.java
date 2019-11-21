@@ -1,5 +1,8 @@
 package com.marine.service;
 
+import com.marine.entity.CulDensityRequest;
+import com.marine.entity.CulDensityResponse;
+
 /**
  * @Auther: cuishuyang
  * @Date: 2019/11/15 09:13

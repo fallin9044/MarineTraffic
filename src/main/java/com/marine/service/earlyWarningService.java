@@ -1,5 +1,8 @@
 package com.marine.service;
 
+import com.marine.entity.EarlyWarningRequest;
+import com.marine.entity.EarlyWarningResponse;
+
 /**
  * @Auther: cuishuyang
  * @Date: 2019/11/15 09:17

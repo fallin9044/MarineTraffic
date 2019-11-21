@@ -9,6 +9,15 @@ public class Data{
 	Integer Minute ; 
 	Integer Second ;
 
+	public Data(Integer year, Integer month, Integer day, Integer hour, Integer minute, Integer second) {
+		Year = year;
+		Month = month;
+		Day = day;
+		Hour = hour;
+		Minute = minute;
+		Second = second;
+	}
+
 	public Integer getYear() {
 		return Year;
 	}
