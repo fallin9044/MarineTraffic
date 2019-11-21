@@ -25,6 +25,11 @@ public class MapController {
         return "Map";
     }
 
+    @RequestMapping("/Map2")
+    public String Map2(){
+        return "Map2";
+    }
+
     @ResponseBody
     @RequestMapping("/heatmap")
     public List<HeatPosition> HeatMap(){
@@ -32,9 +37,6 @@ public class MapController {
         List<HeatPosition> heatPositions = new ArrayList<>();
         //测试用url
         heatPositions = HeatMap.HeatMap("123");
-        for(HeatPosition heat : heatPositions){
-            System.out.println(heat.getLongitude());
-        }
         return heatPositions;
     }
 }
