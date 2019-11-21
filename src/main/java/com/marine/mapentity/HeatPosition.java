@@ -7,30 +7,40 @@ package com.marine.mapentity;
  */
 public class HeatPosition {
 
-    private double longitude;
-    private double latitude;
+    private double lng;
+    private double lat;
+    private int count;
+
+    public HeatPosition(double lng, double lat, int count) {
+        this.lng = lng;
+        this.lat = lat;
+        this.count = count;
+    }
 
     public HeatPosition() {
     }
 
-    public HeatPosition(double longitude, double latitude) {
-        this.longitude = longitude;
-        this.latitude = latitude;
+    public double getLng() {
+        return lng;
     }
 
-    public double getLongitude() {
-        return longitude;
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 
-    public double getLatitude() {
-        return latitude;
+    public double getLat() {
+        return lat;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    public void setLat(double lat) {
+        this.lat = lat;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }

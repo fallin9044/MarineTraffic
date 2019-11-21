@@ -1,3 +1,13 @@
+
+package com.marine.helper;
+
+/**
+ * @Auther: cuishuyang
+ * @Date: 2019/11/15 16:08
+ * @Description:
+ */
+public class math {
+
 //package com.marine.helper;
 //
 //import com.marine.entity.*;
@@ -631,6 +641,12 @@
 //        return false;
 //
 //    }
+<<<<<<< HEAD
+
+}
+
+=======
 //
 //}
 //
+>>>>>>> fb3d48f2bf8a5704f3875cacb5c4d15671c360ac

@@ -32,7 +32,7 @@ public class MapServiceImpl implements MapService {
                 if(split.length != 3){
                     continue;
                 }
-                HeatPosition heat = new HeatPosition(Double.valueOf(split[0]), Double.valueOf(split[1]));
+                HeatPosition heat = new HeatPosition(Double.valueOf(split[0]), Double.valueOf(split[1]), Integer.valueOf(split[2]));
                 positions.add(heat);
             }
         } catch (FileNotFoundException e) {

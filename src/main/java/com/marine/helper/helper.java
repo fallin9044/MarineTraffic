@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+package com.marine.helper;
+
+/**
+ * @Auther: cuishuyang
+ * @Date: 2019/11/15 10:28
+ * @Description:
+ */
+public class helper {
+
 //package com.marine.helper;
 //
 //import com.marine.entity.CulTrafficResponse;
@@ -194,4 +204,8 @@
 //        }
 //        System.out.print("]\r\n");
 //    }
+<<<<<<< HEAD
+}
+=======
 //}
+>>>>>>> fb3d48f2bf8a5704f3875cacb5c4d15671c360ac
