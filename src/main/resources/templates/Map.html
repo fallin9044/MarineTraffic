@@ -38,7 +38,8 @@
         {"lng":"116.647674","lat":"39.900081","count":"17000"},
         {"lng":"116.706551","lat":"39.690368","count":"38000"},
     ];
-
+    initPoints();
+    //console.log(points);
 
     if(!isSupportCanvas()){
         alert('热力图目前只支持有canvas支持的浏览器,您所使用的浏览器不能使用热力图功能~')
@@ -86,9 +87,22 @@
     }
 
     function openHeatmap(){
+        //console.log("hello,initing")
         heatmapOverlay.show();
     }
-
+    function initPoints(){
+        $.ajax({
+            url:"/heatmap",
+            dataType:"json",
+            async:"true",
+            type:"get",
+            data:{},
+            success:function(data){
+                points = data;
+                console.log(data)
+            }
+        });
+    }
     function closeHeatmap(){
         heatmapOverlay.hide();
     }
