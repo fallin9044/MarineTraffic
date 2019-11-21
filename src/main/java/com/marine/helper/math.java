@@ -1,3 +1,4 @@
+
 package com.marine.helper;
 
 /**
@@ -7,6 +8,20 @@ package com.marine.helper;
  */
 public class math {
 
+//package com.marine.helper;
+//
+//import com.marine.entity.*;
+//
+//import java.util.Date;
+//import java.util.List;
+//
+///**
+// * @Auther: cuishuyang
+// * @Date: 2019/11/15 16:08
+// * @Description:
+// */
+//public class math {
+//
 //    public static double LongitudeMin = 117.7737; // 经度最小值
 //    public static double LongitudeMax = 118.63037; // 经度最大值
 //    public static double LatitudeMin = 24.08784;  // 纬度最小值
@@ -626,6 +641,12 @@ public class math {
 //        return false;
 //
 //    }
+<<<<<<< HEAD
 
 }
 
+=======
+//
+//}
+//
+>>>>>>> fb3d48f2bf8a5704f3875cacb5c4d15671c360ac

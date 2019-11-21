@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.marine.helper;
 
 /**
@@ -7,6 +8,20 @@ package com.marine.helper;
  */
 public class helper {
 
+//package com.marine.helper;
+//
+//import com.marine.entity.CulTrafficResponse;
+//import com.marine.entity.Data;
+//
+//import java.util.Date;
+//
+///**
+// * @Auther: cuishuyang
+// * @Date: 2019/11/15 10:28
+// * @Description:
+// */
+//public class helper {
+//
 //    public int TimeDevition(Data d1, Data d2){
 //        Date date1 = new Date(d1.getYear(),d1.getMonth(),d1.getDay(),d1.getHour(),d1.getMinute(),d1.getSecond());
 //        Date date2 = new Date(d2.getYear(),d2.getMonth(),d2.getDay(),d2.getHour(),d2.getMinute(),d2.getSecond());
@@ -189,4 +204,8 @@ public class helper {
 //        }
 //        System.out.print("]\r\n");
 //    }
+<<<<<<< HEAD
 }
+=======
+//}
+>>>>>>> fb3d48f2bf8a5704f3875cacb5c4d15671c360ac
