@@ -1,5 +1,6 @@
 package com.marine.mapservice;
 
+import com.marine.entity.web.FileForSelect;
 import com.marine.mapentity.DoorLine;
 import com.marine.mapentity.HeatPosition;
 import com.marine.mapentity.Trajectory;
@@ -39,5 +40,12 @@ public interface MapService {
      * @Param []
      **/
     public List<List<Trajectory>> Trajectory(String url);
+
+    /**
+     *
+     * @param root
+     * @return
+     */
+    public FileForSelect getFileList(String root);
 
 }
