@@ -1,11 +1,13 @@
 package com.marine.mapentity;
 
+import java.io.Serializable;
+
 /**
  * @Auther: cuishuyang
  * @Date: 2019/11/23 22:41
  * @Description:
  */
-public class PointList {
+public class PointList implements Serializable {
 
     private double lng;
     private double lat;

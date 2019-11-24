@@ -1,11 +1,13 @@
 package com.marine.mapentity;
 
+import java.io.Serializable;
+
 /**
  * @Auther: cuishuyang
  * @Date: 2019/11/20 19:11
  * @Description:
  */
-public class HeatPosition {
+public class HeatPosition implements Serializable {
 
     private double lng;
     private double lat;
