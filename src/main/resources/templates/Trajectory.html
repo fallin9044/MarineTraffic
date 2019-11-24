@@ -20,8 +20,9 @@
             width: 100%;
         }
     </style>
-    <script type="text/javascript"
-            src="http://api.map.baidu.com/api?v=2.0&ak=ZwyG27rzm1SC2ChCNy4LpNf1VGOEOr4p"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WPkrXnr1WMgQAWRXtSG9jFdCWxXC8OvG"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <title>船舶航迹</title>
 </head>
 <body>
@@ -40,7 +41,22 @@
     var point = new BMap.Point(118.202035, 24.38942);
     map.centerAndZoom(point, 12);
     map.enableScrollWheelZoom();
+    var tracklist;
+    function initPoints() {
+        $.ajax({
+            url:"/trajectory",
+            dataType:"json",
+            async:false,
+            type:"get",
+            data:{},
+            success:function(data){
+                tracklist = data;
+                //console.log(tracklist);
+            }
+        });
+    }
 
+    initPoints();
     // var sy = new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW, {
     //     scale: 0.2,//图标缩放大小
     //     strokeColor:'#fff',//设置矢量图标的线填充颜色

@@ -21,8 +21,8 @@
         }
     </style>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WPkrXnr1WMgQAWRXtSG9jFdCWxXC8OvG"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
-    <title>门线</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>门线功能示例</title>
 </head>
 <body>
 <div id="allmap"></div>
@@ -33,6 +33,30 @@
     map.centerAndZoom(point, 12);
     map.enableScrollWheelZoom();
 
+    var tracklist;
+    function initPoints(){
+        $.ajax({
+            url:"/doorline",
+            dataType:"json",
+            async:false,
+            type:"get",
+            data:{},
+            success:function(data){
+                tracklist = data;
+                //console.log(tracklist);
+            }
+        });
+    }
+    // function getJsonLength(jsonData){
+    //     var jsonLength = 0;
+    //     for(var item in jsonData){
+    //         jsonLength++;
+    //     }
+    //     return jsonLength;
+    // }
+
+    initPoints();
+
     for (var i = 1; i < tracklist.length; i++) {
         var list = new Array();
         for (var j = 0; j < tracklist[i].length; j++) {
@@ -41,13 +65,13 @@
         var polyline = new BMap.Polyline(list, {strokeColor: "red", strokeWeight: 0.5, strokeOpacity: 0.5});
         map.addOverlay(polyline);//增加折线
     }
-
-    var list = new Array();
-    for (var j = 0; j < tracklist[0].length; j++) {
-        list[j] = new BMap.Point(tracklist[0][j].lng, tracklist[0][j].lat)
-    }
-    var polyline = new BMap.Polyline(list, {strokeColor: "blue", strokeWeight: 5, strokeOpacity: 0.5});
-    map.addOverlay(polyline);//增加折线
+    //
+    // var list = new Array();
+    // for (var j = 0; j < tracklist[0].length; j++) {
+    //     list[j] = new BMap.Point(tracklist[0][j].lng, tracklist[0][j].lat)
+    // }
+    // var polyline = new BMap.Polyline(list, {strokeColor: "blue", strokeWeight: 5, strokeOpacity: 0.5});
+    // map.addOverlay(polyline);//增加折线
 </script>
 </body>
 </html>

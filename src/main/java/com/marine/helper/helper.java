@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.marine.helper;
 
 /**
@@ -204,8 +204,4 @@ public class helper {
 //        }
 //        System.out.print("]\r\n");
 //    }
-<<<<<<< HEAD
 }
-=======
-//}
->>>>>>> fb3d48f2bf8a5704f3875cacb5c4d15671c360ac

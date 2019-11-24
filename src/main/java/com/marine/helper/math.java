@@ -6,7 +6,7 @@ package com.marine.helper;
  * @Date: 2019/11/15 16:08
  * @Description:
  */
-public class math {
+//public class math {
 
 //package com.marine.helper;
 //
@@ -641,12 +641,4 @@ public class math {
 //        return false;
 //
 //    }
-<<<<<<< HEAD
 
-}
-
-=======
-//
-//}
-//
->>>>>>> fb3d48f2bf8a5704f3875cacb5c4d15671c360ac

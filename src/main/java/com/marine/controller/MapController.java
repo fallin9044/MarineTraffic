@@ -1,6 +1,8 @@
 package com.marine.controller;
 
+import com.marine.mapentity.DoorLine;
 import com.marine.mapentity.HeatPosition;
+import com.marine.mapentity.Trajectory;
 import com.marine.mapservice.Impl.MapServiceImpl;
 import com.marine.mapservice.MapService;
 import org.springframework.stereotype.Controller;
@@ -18,17 +20,19 @@ import java.util.List;
 @Controller
 public class MapController {
 
-    MapService HeatMap = new MapServiceImpl();
+    MapService Map = new MapServiceImpl();
 
-    @RequestMapping("/Map")
-    public String Map(){
-        return "Map";
-    }
+    @RequestMapping("/Map1")
+    public String Map1(){ return "HeatMap";}
 
-    @RequestMapping("/Map2")
-    public String Map2(){
-        return "Map2";
-    }
+    @RequestMapping("Map2")
+    public String Map2(){ return "DoorLine";}
+
+    @RequestMapping("Map3")
+    public String Map3(){ return "Trajectory";}
+
+    @RequestMapping("Map4")
+    public String Map4(){ return "PointList";}
 
     @ResponseBody
     @RequestMapping("/heatmap")
@@ -36,7 +40,27 @@ public class MapController {
 
         List<HeatPosition> heatPositions = new ArrayList<>();
         //测试用url
-        heatPositions = HeatMap.HeatMap("123");
+        heatPositions = Map.HeatMap("123");
         return heatPositions;
     }
+
+    @ResponseBody
+    @RequestMapping("/doorline")
+    public List<List<DoorLine>> DoorLine(){
+        List<List<DoorLine>> doorLines = new ArrayList<>();
+        //测试用yrl
+        doorLines = Map.DoorLine("123");
+        return doorLines;
+    }
+
+    @ResponseBody
+    @RequestMapping("/trajectory")
+    public List<List<Trajectory>> Trajectory(){
+
+        List<List<Trajectory>> trajectories = new ArrayList<>();
+        //测试用url
+        trajectories = Map.Trajectory("123");
+        return trajectories;
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.marine.mapservice.Impl;
 
+import com.marine.mapentity.DoorLine;
 import com.marine.mapentity.HeatPosition;
+import com.marine.mapentity.Trajectory;
 import com.marine.mapservice.MapService;
 
 import java.io.BufferedReader;
@@ -26,20 +28,87 @@ public class MapServiceImpl implements MapService {
         url = "src/main/resources/data/danger1.txt";
         try (FileReader reader = new FileReader(url); BufferedReader bufferedReader = new BufferedReader(reader)) {
             String Line = new String();
-            while ((Line = bufferedReader.readLine()) != null){
+            while ((Line = bufferedReader.readLine()) != null) {
                 //System.out.println(Line);
                 String[] split = Line.split(",");
-                if(split.length != 3){
+                if (split.length != 3) {
                     continue;
                 }
-                HeatPosition heat = new HeatPosition(Double.valueOf(split[0]), Double.valueOf(split[1]), Integer.valueOf(split[2]));
+                HeatPosition heat = new HeatPosition(Double.valueOf(split[0]) + 0.0112, Double.valueOf(split[1]) + 0.0035, Integer.valueOf(split[2].split("\r\n")[0]));
                 positions.add(heat);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } ;
+        }
+        ;
         return positions;
+    }
+
+    @Override
+    public List<List<DoorLine>> DoorLine(String url) {
+
+        List<List<DoorLine>> doorLinesList = new ArrayList<>();
+
+        //测试用
+        url = "src/main/resources/data/doorline2.txt";
+        try (FileReader reader = new FileReader(url); BufferedReader bufferedReader = new BufferedReader(reader)) {
+            String Line = new String();
+            while ((Line = bufferedReader.readLine())!= null){
+                if(Line == ""){
+                    continue;
+                }
+                String[] split = Line.split("-");
+                split[split.length - 1] = split[split.length - 1].split("\r\n")[0];
+                List<DoorLine> doorLines = new ArrayList<>();
+                for (int i = 0; i < split.length; i++) {
+                    String[] point = split[i].split(",");
+                    DoorLine doorLine = new DoorLine(Double.valueOf(point[0]) + 0.0112, Double.valueOf(point[1]) + 0.0035);
+                    doorLines.add(doorLine);
+                }
+                doorLinesList.add(doorLines);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return doorLinesList;
+    }
+
+    @Override
+    public List<List<Trajectory>> Trajectory(String url) {
+
+        List<List<Trajectory>> trajectoriesList = new ArrayList<>();
+
+        //测试用
+        url = "src/main/resources/data/trajectory1.txt";
+        try(FileReader reader = new FileReader(url); BufferedReader bufferedReader = new BufferedReader(reader)){
+            String Line = new String();
+            while((Line = bufferedReader.readLine()) != null){
+                String[] split = Line.split("-");
+                if(split.length < 3){
+                    continue;
+                }
+                List<Trajectory> trajectories = new ArrayList<>();
+                split[split.length - 1] = split[split.length - 1].split("\r\n")[0];
+                for (int i = 0; i < split.length; i++) {
+                    String[] point = split[i].split(",");
+                    if(point.length < 2){
+                        continue;
+                    }
+                    Trajectory trajectory = new Trajectory(Double.valueOf(point[0]) + 0.0112, Double.valueOf(point[1]) + 0.0035);
+                    trajectories.add(trajectory);
+                }
+                trajectoriesList.add(trajectories);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return trajectoriesList;
     }
 }
