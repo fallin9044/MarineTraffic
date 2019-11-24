@@ -1,71 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WPkrXnr1WMgQAWRXtSG9jFdCWxXC8OvG"></script>
-        <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <title>热力图功能示例</title>
-        <style type="text/css">
-            ul,li{list-style: none;margin:0;padding:0;float:left;}
-            html{height:100%}
-            body{height:100%;margin:0px;padding:0px;font-family:"微软雅黑";}
-            #container{height:100%;width:100%;}
-            #r-result{width:100%;}
-        </style>
-    </head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/zTreeStyle/zTreeStyle.css">
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=WPkrXnr1WMgQAWRXtSG9jFdCWxXC8OvG"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/js/jquery.ztree.core.js"></script>
+    <script src="/js/jquery.ztree.excheck.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <title>热力图功能示例</title>
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            font-family: "微软雅黑";
+        }
+
+        #container {
+            height: 100%;
+            width: 100%;
+        }
+
+        #r-result {
+            width: 100%;
+        }
+    </style>
+</head>
 <body>
 <div id="container"></div>
-<div id="r-result" >
-    <input type="button"  οnclick="openHeatmap();" value="显示热力图"/><input type="button"  οnclick="closeHeatmap();" value="关闭热力图"/>
+<div id="r-result">
+    <button onclick="openHeatMap()">显示热力图</button>
+    <button onclick="closeHeatMap()">关闭热力图</button>
+    <button data-toggle="modal" data-target="#myModal" id="getFile" onclick="getFiles()">选择文件</button>
 </div>
-</body>
-</html>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">文件选择</h4>
+            </div>
+            <div class="modal-body">
+                <ul id="treeDemo" class="ztree"></ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="submitFileRequest">提交请求</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 <script type="text/javascript">
+    //------------ map参数设置 ---------------
     var map = new BMap.Map("container");          // 创建地图实例
-
     var point = new BMap.Point(118.202035, 24.38942);
     map.centerAndZoom(point, 12);             // 初始化地图，设置中心点坐标和地图级别
     map.setCurrentCity("厦门");		//设置当前显示城市
     map.enableScrollWheelZoom(true); // 允许滚轮缩放
-
-    initPoints();
-    if(!isSupportCanvas()){
+    if (!isSupportCanvas()) {
         alert('热力图目前只支持有canvas支持的浏览器,您所使用的浏览器不能使用热力图功能~')
     }
-    //详细的参数,可以查看heatmap.js的文档 https://github.com/pa7/heatmap.js/blob/master/README.md
-    //参数说明如下:
-    /* visible 热力图是否显示,默认为true
-     * opacity 热力的透明度,1-100
-     * radius 势力图的每个点的半径大小
-     * gradient  {JSON} 热力图的渐变区间 . gradient如下所示
-     *  {
-            .2:'rgb(0, 255, 255)',
-            .5:'rgb(0, 110, 255)',
-            .8:'rgb(100, 0, 255)'
-        }
-        其中 key 表示插值的位置, 0~1.
-            value 为颜色值.
-     */
-    heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":2,"visible":true});
+    heatmapOverlay = new BMapLib.HeatmapOverlay({"radius": 2, "visible": true});
     map.addOverlay(heatmapOverlay);
 
 
-    //closeHeatmap();
+    //------------- Ztree参数设置 ----------------
+    document.getElementById("submitFileRequest").addEventListener("click",sumbitFileRequest);
+    var zTreeObj;
+    // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+    var setting = {
+        check:{
+            enable:true,
+            chkStyle:'radio',
+            radioType: "all"
+        }
+    };
+    var zNodes;
+    //设施文件的根目录 默认是 “src/main/resources/data"
+    var root = "src/main/resources/data"
+    function getFiles(root){
+        $.ajax({
+            url:"/file",
+            dataType:"json",
+            async:"true",
+            type:"post",
+            data:{roor:root},
+            success:function(data){
+                //points = data;
+                zNodes = data;
+                zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+            }
+        });
+    }
+    function sumbitFileRequest(){
+        var nodes = zTreeObj.getCheckedNodes(true);
+        if(nodes.length == 0) alert("至少选择一个文件")
+        else {
+            initPoints(nodes[0].path)
+            $('#myModal').modal('hide')
+        }
 
-
+    }
 
     //判断浏览区是否支持canvas
-    function isSupportCanvas(){
+    function isSupportCanvas() {
         var elem = document.createElement('canvas');
         return !!(elem.getContext && elem.getContext('2d'));
     }
 
-    function setGradient(){
+    function setGradient() {
         /*格式如下所示:
         {
             0:'rgb(102, 255, 0)',
@@ -74,30 +131,32 @@
         }*/
         var gradient = {};
         var colors = document.querySelectorAll("input[type='color']");
-        colors = [].slice.call(colors,0);
-        colors.forEach(function(ele){
+        colors = [].slice.call(colors, 0);
+        colors.forEach(function (ele) {
             gradient[ele.getAttribute("data-key")] = ele.value;
         });
-        heatmapOverlay.setOptions({"gradient":gradient});
+        heatmapOverlay.setOptions({"gradient": gradient});
     }
 
-    function openHeatmap(){
-        heatmapOverlay.show();
+    function openHeatMap() {
+        $("#container").show();
     }
-    function initPoints(){
+
+    function initPoints(path) {
         $.ajax({
-            url:"/heatmap",
-            dataType:"json",
-            async:"true",
-            type:"get",
-            data:{},
-            success:function(data){
-                heatmapOverlay.setDataSet({data:data,max:100});
+            url: "/heatmap",
+            dataType: "json",
+            async: true,
+            type: "post",
+            data: {path:path},
+            success: function (data) {
+                heatmapOverlay.setDataSet({data: data, max: 100});
             }
         });
     }
-    function closeHeatmap(){
-        heatmapOverlay.hide();
+
+    function closeHeatMap() {
+        $("#container").hide();
     }
 </script>
 </body>

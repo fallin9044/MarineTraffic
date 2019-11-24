@@ -1,14 +1,12 @@
 package com.marine.mapservice.Impl;
 
+import com.marine.entity.web.FileForSelect;
 import com.marine.mapentity.DoorLine;
 import com.marine.mapentity.HeatPosition;
 import com.marine.mapentity.Trajectory;
 import com.marine.mapservice.MapService;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -110,5 +108,26 @@ public class MapServiceImpl implements MapService {
             e.printStackTrace();
         }
         return trajectoriesList;
+    }
+
+    public FileForSelect getFileList(String root){
+        if("".equals(root)||root == null) root = "src/main/resources/data";
+        File file = new File(root);
+        if(file.exists()){
+            if(file.isDirectory())
+                return scanFile(new FileForSelect(root,file.getName(),file.isDirectory()));
+            else return new FileForSelect(root,file.getName(),file.isDirectory());
+        }
+        else return null;
+    }
+
+    public FileForSelect scanFile(FileForSelect root){
+        File file = new File(root.getPath());
+        for(File child:file.listFiles()){
+            FileForSelect childMode = new FileForSelect(root.getPath()+"/"+child.getName(),child.getName(),child.isDirectory());
+            if(child.isDirectory()) childMode = scanFile(childMode);
+            root.addChild(childMode);
+        }
+        return root;
     }
 }
