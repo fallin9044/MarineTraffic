@@ -123,6 +123,10 @@ public class MapServiceImpl implements MapService {
 
     public FileForSelect scanFile(FileForSelect root){
         File file = new File(root.getPath());
+        if(file.list().length == 0) {
+            root.setChildren(new ArrayList<>());
+            return root;
+        }
         for(File child:file.listFiles()){
             FileForSelect childMode = new FileForSelect(root.getPath()+"/"+child.getName(),child.getName(),child.isDirectory());
             if(child.isDirectory()) childMode = scanFile(childMode);
