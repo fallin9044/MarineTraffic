@@ -1,11 +1,15 @@
 package com.marine.mapentity;
 
+import java.io.Serializable;
+
 /**
  * @Auther: cuishuyang
  * @Date: 2019/11/22 18:45
  * @Description:
  */
-public class DoorLine {
+public class DoorLine implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private double lng;
     private double lat;

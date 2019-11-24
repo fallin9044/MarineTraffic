@@ -1,11 +1,13 @@
 package com.marine.mapentity;
 
+import java.io.Serializable;
+
 /**
  * @Auther: cuishuyang
  * @Date: 2019/11/23 13:37
  * @Description:
  */
-public class Trajectory {
+public class Trajectory implements Serializable {
 
     private double lng;
     private double lat;
